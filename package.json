@@ -1,0 +1,25 @@
+{
+  "name": "base-compare",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean": "rimraf dist",
+    "tw:c": "tailwindcss -i tailwind.css -o src/scss/tailwind.css --watch",
+    "sass:w": "sass -w src/scss:src/css --no-source-map --style compressed",
+    "css:w": "concurrently \"npm run tw:c\" \"npm run sass:w\"",
+    "css:build": "postcss src/css/*.css -d dist/css --exclude .css.map",
+    "js:min": "uglifyjs src/script/*.js -o dist/bundle.min.js --mangle --compress",
+    "build": "SET NODE_ENV=production & npm run clean & npm run css:build & node config/copy-static-build.js & npm run js:min"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "cssnano": "^6.0.3",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
+    "postcss-discard-comments": "^6.0.1",
+    "postcss-nesting": "^12.0.2",
+    "sass": "^1.70.0",
+    "tailwindcss": "^3.4.1",
+    "uglify-js": "^3.17.4"
+  }
+}
