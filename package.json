@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "clean": "rimraf dist",
-    "tw:c": "tailwindcss -i tailwind.css -o src/scss/tailwind.css --watch",
+    "tw:w": "tailwindcss -i tailwind.css -o src/css/tailwind.css --watch",
     "sass:w": "sass -w src/scss:src/css --no-source-map --style compressed",
     "css:w": "concurrently \"npm run tw:c\" \"npm run sass:w\"",
     "css:build": "postcss src/css/*.css -d dist/css --exclude .css.map",
