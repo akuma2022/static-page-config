@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.js", "./public/index.html"],
   theme: {
     extend: {
       backgroundImage: {
@@ -11,5 +11,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin"), require("preline/plugin")],
 };

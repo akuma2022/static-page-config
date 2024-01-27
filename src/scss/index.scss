@@ -1,3 +1,13 @@
-body {
-  background-color: aqua;
+* {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
 }
+
+body {
+    padding: 16px 32px;
+}
+
+@import './filter/index.scss';
+@import './table/index.scss'

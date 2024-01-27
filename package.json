@@ -3,16 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "clean": "rimraf dist",
-    "tw:w": "tailwindcss -i tailwind.css -o src/css/tailwind.css --watch",
-    "sass:w": "sass -w src/scss:src/css --no-source-map --style compressed",
-    "css:w": "concurrently \"npm run tw:c\" \"npm run sass:w\"",
-    "css:build": "postcss src/css/*.css -d dist/css --exclude .css.map",
-    "js:min": "uglifyjs src/script/*.js -o dist/bundle.min.js --mangle --compress",
-    "build": "SET NODE_ENV=production & npm run clean & npm run css:build & node config/copy-static-build.js & npm run js:min"
+    "tw:w": "tailwindcss -i tailwind.scss -o src/scss/tailwind.scss --watch",
+    "sass:w": "sass -w src/scss/index.scss:dist/style.css --no-source-map --style compressed",
+    "css:min": "postcss dist/style.css -o min/style.css --exclude .css.map",
+    "css:w": "concurrently \"npm run tw:w\" \"npm run sass:w\"",
+
+    "js:w" :"watchify src/main.js -o dist/bundle.js -v",
+    "js:min": "uglifyjs dist/bundle.js -o min/bundle.js --mangle --compress",
+
+    "build" :"SET NODE_ENV=production & npm run css:min & npm run js:min"
+
   },
   "devDependencies": {
     "autoprefixer": "^10.4.17",
+    "browserify": "^17.0.0",
     "cssnano": "^6.0.3",
     "postcss": "^8.4.33",
     "postcss-cli": "^11.0.0",
@@ -20,6 +24,11 @@
     "postcss-nesting": "^12.0.2",
     "sass": "^1.70.0",
     "tailwindcss": "^3.4.1",
-    "uglify-js": "^3.17.4"
+    "uglify-js": "^3.17.4",
+    "watchify": "^4.0.0"
+  },
+  "dependencies": {
+    "flowbite": "^2.2.1",
+    "preline": "^2.0.3"
   }
 }
