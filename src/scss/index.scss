@@ -6,6 +6,17 @@ body {
     padding: 16px 32px;
 }
 
+.hidden_scrollbar {
+    &::-webkit-scrollbar {
+        display: none
+    }
+
+}
+
+
+
 @import './tailwind.scss';
 @import './filter/index.scss';
 @import './table/index.scss';
+@import './component/index.scss';
+@import './animation.scss';

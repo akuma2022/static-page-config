@@ -17,89 +17,136 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <link rel="stylesheet" href="/dist/style.css" />
     <script src="/dist/bundle.js" defer></script>
   </head>
 
-  <body>
-    <section class="filter">
-      <div class="filter-case">
-        <div class="filter-case"></div>
+  <body class="flex flex-col gap-2 hidden_scrollbar">
+    <section
+      class="flex flex-col w-[min(100%,800px)] mx-auto px-2 py-4 shadow-md gap-4"
+    >
+      <div class="flex flex-row w-full gap-2">
+        <div class="flex-1 text-center cursor-pointer px-4 py-2">
+          <span class="text-md font-semibold">Shape, Carat, & Price</span>
+        </div>
+        <div class="flex-1 text-center cursor-pointer px-4 py-2">
+          <span class="text-md font-semibold">Color, Clarity, & Cut</span>
+        </div>
+        <div class="flex-1 text-center cursor-pointer px-4 py-2">
+          <span class="text-md font-semibold">More Filters</span>
+        </div>
+      </div>
+
+      <!-- ---------------- -->
+
+      <div class="flex flex-row gap-2 px-4">
+        <div class="flex-1 flex flex-col w-1/2">
+          <div>
+            <span class="text-sm font-semibold">Diamond Shape</span>
+
+            <div
+              class="relative flex flex-row items-center w-full"
+              id="shape-categories"
+            >
+              <div
+                class="rotate-180 -left-4 absolute cursor-pointer"
+                id="previous"
+              >
+                <i class="fa-solid fa-circle-chevron-right text-xl"></i>
+              </div>
+
+              <ol
+                class="flex flex-row gap-2 max-w-full overflow-hidden hidden_scrollbar items-center scroll-smooth p-2"
+              ></ol>
+
+              <div class="absolute -right-4 cursor-pointer" id="next">
+                <i class="fa-solid fa-circle-chevron-right text-xl"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col w-full gap-4">
+            <span class="text-sm font-semibold">Diamond Origin</span>
+
+            <div class="flex flex-row w-full gap-2">
+              <div
+                class="flex-1 text-center px-2 py-1 border-emerald-600 rounded-full"
+                style="border: 1px solid; cursor: pointer"
+              >
+                <span class="text-sm font-medium">Natural Diamonds</span>
+              </div>
+              <div
+                class="flex-1 text-center px-2 py-1 border-emerald-600 rounded-full"
+                style="border: 1px solid; cursor: pointer"
+              >
+                <span class="text-sm font-medium">Lab Diamonds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 flex flex-col w-1/2">
+          <div>
+            <div class="range-slider"><div class="progress"></div></div>
+            <div class="range-input">
+              <input
+                type="range"
+                class="range-min"
+                min="0"
+                max="10000"
+                value="2500"
+              />
+
+              <input
+                type="range"
+                class="range-max"
+                min="0"
+                max="10000"
+                value="7500"
+              />
+            </div>
+          </div>
+          <div></div>
+        </div>
       </div>
     </section>
+    <!-- -------------------- -->
+    <section class="flex flex-col gap-4">
+      <div class="flex flex-row gap-4 items-center">
+        <label
+          for="rows-per-page"
+          class="block mb-2 text-xs text-gray-900 font-semibold"
+          >Rows per page :
+        </label>
 
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table
-        class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
-      >
-        <thead
-          class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+        <select id="rows-per-page" class="px-2 py-1 rounded-md w-20">
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table
+          class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400"
         >
-          <tr>
-            <th scope="col" class="px-6 py-3">Product name</th>
-            <th scope="col" class="px-6 py-3">Color</th>
-            <th scope="col" class="px-6 py-3">Category</th>
-            <th scope="col" class="px-6 py-3">Price</th>
-            <th scope="col" class="px-6 py-3">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Apple MacBook Pro 17"
-            </th>
-            <td class="px-6 py-4">Silver</td>
-            <td class="px-6 py-4">Laptop</td>
-            <td class="px-6 py-4">$2999</td>
-            <td class="px-6 py-4">
-              <a
-                href="#"
-                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >Edit</a
-              >
-            </td>
-          </tr>
-          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Microsoft Surface Pro
-            </th>
-            <td class="px-6 py-4">White</td>
-            <td class="px-6 py-4">Laptop PC</td>
-            <td class="px-6 py-4">$1999</td>
-            <td class="px-6 py-4">
-              <a
-                href="#"
-                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >Edit</a
-              >
-            </td>
-          </tr>
-          <tr class="bg-white dark:bg-gray-800">
-            <th
-              scope="row"
-              class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-            >
-              Magic Mouse 2
-            </th>
-            <td class="px-6 py-4">Black</td>
-            <td class="px-6 py-4">Accessories</td>
-            <td class="px-6 py-4">$99</td>
-            <td class="px-6 py-4">
-              <a
-                href="#"
-                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                >Edit</a
-              >
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+          >
+            <tr>
+              <th scope="col" class="px-6 py-3">Shape</th>
+              <th scope="col" class="px-6 py-3">Price</th>
+              <th scope="col" class="px-6 py-3">Carat</th>
+              <th scope="col" class="px-6 py-3">Cut</th>
+              <th scope="col" class="px-6 py-3">Color</th>
+              <th scope="col" class="px-6 py-3">Clarity</th>
+              <th scope="col" class="px-6 py-3">Color</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
   </body>
 </html>

@@ -1,0 +1,14 @@
+@keyframes scrollAnimation {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+
+    100% {
+        transform: translateY(100%) translateX(100%);
+    }
+}
+
+/* Apply the animation to the scrollable container */
+.scroll-animation {
+    animation: scrollAnimation 1s ease-in-out;
+}

@@ -1,1 +1,4 @@
-const data = require("./mock/diamond_API.json");
+const $ = document.querySelector.bind(this);
+const $$ = document.querySelectorAll.bind(this);
+// require("./components");
+require("./handler");
