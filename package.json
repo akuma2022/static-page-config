@@ -28,6 +28,8 @@
     "watchify": "^4.0.0"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "@tailwindcss/typography": "^0.5.10",
     "flowbite": "^2.3.0",
     "preline": "^2.0.3"
   }
